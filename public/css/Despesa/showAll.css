@@ -64,24 +64,26 @@
     text-align: center;
   }
   .btn {
-    display: flexbox;
+    display: flex;
     flex-direction: column;
-    height: auto;
-    width: auto;
+    height: 50px;
+    width: 150px;
     align-items: center;
     margin: 3px;
     justify-content: space-around;
     background-color: #65DAF9;
-    color: #FFF;
+    color: #000;
     text-transform: uppercase;
     border: 3px solid transparent;
     transition: .7s;
     border-radius: 10px;
+    font-weight: bolder;
+    text-align: center;
   }
   
   .btn:hover {
     text-decoration: none;
-    color: #000;
+    color: #FFF;
     background-color: transparent;
     border-color: #3EC1D5;
   }
@@ -111,7 +113,7 @@
   
   #cards-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
   
   #despesa-container .card {
@@ -120,11 +122,13 @@
     border-radius: 10px;
     padding: 0;
     margin: .5%;
+    justify-items: center;
+    align-items: center;
   }
   
   #despesa-container img {
-    max-height: 25%;
-    padding: 30px;
+    width: 275px;
+    height: 100px;
   }
   
   .card .card-date {

@@ -24,12 +24,12 @@
             </div>
             <div class="form-group">
                 <label for="date">Data da despesa:</label>
-                <input type="date" class="form-control" id="date" name="date" value="{{ date('Y-m-d',strtotime($despesa->date)) }}">
+                <input type="text" class="form-control" id="date" name="date" value="{{ $despesa->date }}">
             </div>
-            <input type="submit" class="btn btn-primary" value="Editar despesa">
+            <input onclick="return validar()" type="submit" class="btn btn-primary" value="Editar despesa">
         </form>
     </div> 
 @endsection
 @section('js_link')
-    <script src="/js/jsNewDespesa.js"></script>
+    <script src="/js/jsEdit.js"></script>
 @endsection

@@ -6,7 +6,7 @@
 @section('middle')
 <div id="despesa-create-container" class="col-md-6 offset-md-3">
         <h1>Cadastrar Despesa</h1>
-        <form action="/Despesa" method="POST" enctype="multipart/form-data">
+        <form name="formulario" action="/Despesa" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label for="imagem">imagem:</label>
@@ -22,9 +22,9 @@
             </div>
             <div class="form-group">
                 <label for="date">Data da despesa:</label>
-                <input type="date" class="form-control" id="date" name="date" placeholder="dd/mm/AAAA">
+                <input type="text" class="form-control" id="date" name="date" placeholder="dd/mm/AAAA">
             </div>
-            <input type="submit" class="btn btn-primary" value="Cadastrar despesa">
+            <input onclick="return validar()" type="submit" class="btn btn-primary" value="Cadastrar despesa">
         </form>
     </div> 
 @endsection

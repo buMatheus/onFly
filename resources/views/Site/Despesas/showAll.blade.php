@@ -22,7 +22,9 @@
             <div class="row" id="cards-container">
                 @foreach($despesas as $despesa)
                 <div class="card col-md-3">
-                    <img src="/img/Despesas/{{ $despesa->imagem }}" alt="{{ $despesa->imagem }}" class="card">
+                    <div class="row">
+                        <img src="/img/Despesas/{{ $despesa->imagem }}" alt="{{ $despesa->imagem }}">
+                    </div>
                     <div class="card-body">
                         <p class="card-date">{{ date('d/m/Y',strtotime($despesa->date))}}</p>
                         <p class="card-description">{{$despesa->descricao }}</p>

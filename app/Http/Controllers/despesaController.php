@@ -28,13 +28,11 @@ class despesaController extends Controller
         return view('Site/Despesas/update', ['despesa' => $despesa]);
     }
     public function update(Request $request){
+        // Pego os dados antigos
         $despesaAntiga = Despesa::findOrFail($request->id);
         // Atualizo meu dados em uma variavel
         $despesa = $request->all();
         //Upload de imagem
-        // Define o valor default para a variável que contém o nome da imagem 
-        $nameFile = null;
-    
         // Verifica se informou o arquivo e se é válido
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             
@@ -51,16 +49,17 @@ class despesaController extends Controller
             $requestImage->move(public_path('img/Despesas'), $nameFile);
             // apos update de imagem apago a antiga no meu repositorio
             $nomeImagem = $despesaAntiga->imagem; // Recebe o nome da imagem antiga
-            $path = public_path()."/img/Despesas/".$nomeImagem; // Busca o caminho da imagem
-
-            if(file_exists($path)){ //Verificação para ver se há arquivo no amarzenamento
-                unlink($path); // Deleta minha imagem no diretorio repassado
+            if($nomeImagem != 'null.png'){ // Caso seja o exemplo de imagem null não apago do meu caminho
+                $path = public_path()."/img/Despesas/".$nomeImagem; // Busca o caminho da imagem
+                if(file_exists($path)){ //Verificação para ver se há arquivo no amarzenamento
+                    unlink($path); // Deleta minha imagem no diretorio repassado
+                }
             }
             //salvo novo nome de imagem
             $despesa['imagem'] = $nameFile;
-    
         }
-        
+        // Converto para date
+        $despesa['date'] = date('Y-m-d',strtotime($request->date));
         // Atualizo no BD
         Despesa::findOrFail($request->id)->update($despesa);
         //Retorno da função
@@ -69,11 +68,14 @@ class despesaController extends Controller
     public function destroy($id){
         $despesa = Despesa::findOrFail($id); // Encontra a despesa no BD
         $nomeImagem = $despesa->imagem; // Recebe o nome da imagem
-        $path = public_path()."/img/Despesas/".$nomeImagem; // Busca o caminho da imagem
+        if($nomeImagem != 'null.png'){ // Caso seja o exemplo de imagem null não apago do meu caminho
+            $path = public_path()."/img/Despesas/".$nomeImagem; // Busca o caminho da imagem
 
-        if(file_exists($path)){ //Verificação para ver se há arquivo no amarzenamento
-            unlink($path); // Deleta minha imagem no diretorio repassado
+            if(file_exists($path)){ //Verificação para ver se há arquivo no amarzenamento
+                unlink($path); // Deleta minha imagem no diretorio repassado
+            }
         }
+        
         
         Despesa::findOrFail($id)->delete(); // Apaga dado no BD
 
@@ -85,12 +87,9 @@ class despesaController extends Controller
         $despesa = new Despesa;
         $despesa->descricao = $request->descricao;
         $despesa->valor = (double)$request->valor;
-        $despesa->date = $request->date;
+        $despesa->date = date('Y-m-d',strtotime($request->date));
 
         //Upload de imagem
-        // Define o valor default para a variável que contém o nome da imagem 
-        $nameFile = null;
-    
         // Verifica se informou o arquivo e se é válido
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             
@@ -107,6 +106,12 @@ class despesaController extends Controller
             $requestImage->move(public_path('img/Despesas'), $nameFile);
             $despesa->imagem = $nameFile;
     
+        }else{
+            // Define o valor default para a variável que contém o nome da imagem 
+            $nameFile = 'null';
+            $extension = 'png';
+            $nameFile = "{$nameFile}.{$extension}";
+            $despesa->imagem = $nameFile;
         }
         $user = auth()->user();
         $despesa->user_id = $user->id;
