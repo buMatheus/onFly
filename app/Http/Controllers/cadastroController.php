@@ -9,7 +9,7 @@ class cadastroController extends Controller
     public function index(){
         return view('Site/Cadastro/signup');
     }
-    public function register(){
-        return view('Site/index');
+    public function redirecionar(){
+        return view('Site/Home/index');
     }
 }

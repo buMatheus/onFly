@@ -1,13 +1,10 @@
-@extends('Site.layout')
-@section('js_link')
-    <script src="/js/jsNewDespesa.js"></script>
-@endsection
+@extends('Site/Layouts/main')
 @section('css_link')
-    <link rel="stylesheet" href="/css/Home/index.css">
+    <link rel="stylesheet" href="/css/Despesa/new.css">
 @endsection
-@section('title', 'Despesas')
+@section('title', 'Nova despesa')
 @section('middle')
-<div id="event-create-container" class="col-md-6 offset-md-3">
+<div id="despesa-create-container" class="col-md-6 offset-md-3">
         <h1>Cadastrar Despesa</h1>
         <form action="/Despesa" method="POST" enctype="multipart/form-data">
         @csrf
@@ -21,14 +18,16 @@
             </div>
             <div class="form-group">
                 <label for="title">Valor:</label>
-                <input type="number" class="form-control" name="valor" id="valor" onkeyup="validarfloat(this)" placeholder="12,34" autofocus>
+                <input type="text" class="form-control" name="valor" id="valor" placeholder="125,34">
             </div>
             <div class="form-group">
                 <label for="date">Data da despesa:</label>
-                <input type="date" class="form-control" id="date" name="date">
+                <input type="date" class="form-control" id="date" name="date" placeholder="dd/mm/AAAA">
             </div>
             <input type="submit" class="btn btn-primary" value="Cadastrar despesa">
         </form>
     </div> 
-
+@endsection
+@section('js_link')
+    <script src="/js/jsNewDespesa.js"></script>
 @endsection

@@ -1,20 +1,9 @@
-@extends('Site.layout')
-@section('js_link')
-    <script src="/js/jsCadastro.js"></script>
-@endsection
+@extends('Site/Layouts/main')
 @section('css_link')
     <link rel="stylesheet" href="/css/Login/login.css">
 @endsection
 @section('title', 'Registrar')
 @section('usuario', 'Olá Visitante')
-@section('menucabecalho')
-    <div class="cabecalho">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/Cadastro">Registrar</a></li>
-        </ul>
-    </div>
-@endsection
 @section('middle')
     <mid>
 		<div class="container">
@@ -108,6 +97,8 @@
 				</div> <!-- Second Column -->
 			</div><!-- Second content -->
 		</div><!-- Container -->
-		<script src="js/jsCadastro.js"></script>
     </mid>
+@endsection
+@section('js_link')
+    <script src="/js/jsCadastro.js"></script>
 @endsection

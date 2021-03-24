@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class homeController extends Controller
 {
     public function index(){
-        return view('Site/index');
+        return view('Site/Home/index');
     }
 }

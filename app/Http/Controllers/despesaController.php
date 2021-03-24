@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Despesa;
 use App\Models\User;
+use Date;
+use DateTime;
 
 class despesaController extends Controller
 {
     public function index(){
         $user = auth()->user();
-        $userid = $user->id;
-        $despesas = Despesa::where('user_id', $userid)->get();
+        $despesas = Despesa::where('user_id', $user->id)->get();
         return view('Site/Despesas/showAll', ['despesas' => $despesas]);
     }
     public function create(){
@@ -83,8 +84,8 @@ class despesaController extends Controller
     public function store(Request $request){
         $despesa = new Despesa;
         $despesa->descricao = $request->descricao;
+        $despesa->valor = (double)$request->valor;
         $despesa->date = $request->date;
-        $despesa->valor = '55.99';
 
         //Upload de imagem
         // Define o valor default para a variável que contém o nome da imagem 
