@@ -1,9 +1,12 @@
 /* Gerais */
   body {
 	  font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-color: #212529;
   }
   /*Footer Style*/
   footer{
+    text-align: center;
     background-color: #212529;
     color: #FFF;
   }
@@ -148,7 +151,7 @@
     color: #757575;
   }
   
-/* Event create page */
+/* Despesa create page */
   #despesa-create-container {
     padding: 30px
   }

@@ -1,9 +1,12 @@
 /* Gerais */
 body {
 	font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background-color: #212529;
   }
     /*Footer Style*/
 	footer{
+    text-align: center;
 		background-color: #212529;
 		color: #FFF;
 	  }
@@ -58,6 +61,7 @@ body {
   .conteudo{
       height: 83vh;
       width: 100%;
+      background-color: #ffffff;
   }
   #imagem-container,
   #info-container {

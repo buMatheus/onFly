@@ -1,4 +1,4 @@
-@extends('Site/Layouts/main')
+@extends('Site.Layouts.main')
 @section('title', 'On Fly')
 @section('css_link')
     <link rel="stylesheet" href="/css/Home/index.css">

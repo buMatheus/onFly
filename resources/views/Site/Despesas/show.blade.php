@@ -1,4 +1,4 @@
-@extends('Site/Layouts/main')
+@extends('Site.Layouts.main')
 @section('css_link')
     <link rel="stylesheet" href="/css/Despesa/show.css">
 @endsection
@@ -8,13 +8,13 @@
         <div class="col-md-10 offset-md-1">
             <div class="row">
                 <div id="imagem-container" class="col-md-6">
-                    <img src="/img/Despesas/{{ $despesa->imagem }}" class="img-fluid">
+                    <img src="/storage/img/Despesas/{{ $despesa->imagem }}" class="img-fluid">
                 </div>
                 <div id="info-container" class="col-md-4">
                     <h3 class="despesa-data">{{ date('d/m/Y',strtotime($despesa->date))}}</h3>
                     <p class="despesa-valor">R${{ $despesa->valor}}</p>
                     <div class="row" id="btns">
-                        <a href="/Despesa/edit/{{ $despesa->id }}" class="btn btn-primary" id="alterar-submit">Editar</a>
+                        <a href="/Despesa/{{ $despesa->id }}/edit" class="btn btn-primary" id="alterar-submit">Editar</a>
                         <form action="/Despesa/{{ $despesa->id }}" method="POST">
                             @csrf
                             @method('DELETE')

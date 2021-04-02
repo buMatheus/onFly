@@ -1,4 +1,4 @@
-@extends('Site/Layouts/main')
+@extends('Site.Layouts.main')
 @section('css_link')
     <link rel="stylesheet" href="/css/Despesa/edit.css">
 @endsection
@@ -6,13 +6,13 @@
 @section('middle')
     <div id="despesa-create-container" class="col-md-6 offset-md-3">
         <h1>Editar Despesa</h1>
-        <form action="/Despesa/update/{{$despesa->id}}" method="POST" enctype="multipart/form-data">
+        <form action="/Despesa/{{$despesa->id}}" method="POST" enctype="multipart/form-data">
         @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="imagem">imagem:</label>
                 <input type="file" id="imagem" name="imagem" class="form-control-file">
-                <img src="/img/Despesas/{{ $despesa->imagem }}" class="img-preview">
+                <img src="/storage/img/Despesas/{{ $despesa->imagem }}" class="img-preview">
             </div>
             <div class="form-group">
                 <label for="title">Descricao:</label>

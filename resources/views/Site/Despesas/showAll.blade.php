@@ -1,4 +1,4 @@
-@extends('Site/Layouts/main')
+@extends('Site.Layouts.main')
 @section('title', 'Despesas')
 @section('css_link')
     <link rel="stylesheet" href="/css/Despesa/showAll.css">
@@ -13,7 +13,7 @@
         <div class="container" id="despesa-container">
             <div class="row">
                 <div class="col-12" id="row-add">  
-                <a href="/Despesa/new" class="btn" id="add">adicionar</a>
+                <a href="/Despesa/create" class="btn" id="add">adicionar</a>
                 </div>
                 <div class="col-12">  
                 <h2>Lista de todas as despesas</h2>
@@ -23,18 +23,18 @@
                 @foreach($despesas as $despesa)
                 <div class="card col-md-3">
                     <div class="row">
-                        <img src="/img/Despesas/{{ $despesa->imagem }}" alt="{{ $despesa->imagem }}">
+                        <img src="/storage/img/Despesas/{{ $despesa->imagem }}" alt="{{ $despesa->imagem }}">
                     </div>
                     <div class="card-body">
                         <p class="card-date">{{ date('d/m/Y',strtotime($despesa->date))}}</p>
                         <p class="card-description">{{$despesa->descricao }}</p>
                         <p class="card-participants">R${{$despesa->valor}}</p>
                         <a href="/Despesa/{{ $despesa->id }}" class="btn" id="show">Detalhar</a>
-                        <a href="/Despesa/edit/{{ $despesa->id }}" class="btn" id="edit">Editar</a>
+                        <a href="/Despesa/{{ $despesa->id }}/edit" class="btn" id="edit">Editar</a>
                         <form action="/Despesa/{{ $despesa->id }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn" id="delete"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
+                            <button onclick="return confirmar()" type="submit" class="btn btn-danger delete-btn" id="delete"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                         </form> 
                     </div>
                 </div>
@@ -45,4 +45,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js_link')
+    <script src="/js/jsShowAll.js"></script>
 @endsection

@@ -24,7 +24,7 @@
     <header>
         <div class="container" id="nav-container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img id="logo" src="/../img/logo.png" alt="On Fly">
                 </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" id="home-menu" href="/">Home</span></a>
                         @auth
-                            <a class="nav-item nav-link" id="home-menu" href="/Despesa/showAll">Despesas</a>
+                            <a class="nav-item nav-link" id="home-menu" href="/Despesa">Despesas</a>
                             <form action="/logout" method="POST">
                             @csrf
                                 <a class="nav-item nav-link" id="home-menu" href="/logout" 

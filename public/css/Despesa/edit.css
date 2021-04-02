@@ -1,9 +1,12 @@
 /* Gerais */
 body {
 	font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background-color: #212529;
   }
     /*Footer Style*/
 	footer{
+    text-align: center;
 		background-color: #212529;
 		color: #FFF;
 	  }
@@ -60,14 +63,11 @@ body {
 	margin-top: 15px;
 	width: 200px;
 	height: auto;
+  max-height: 40vh;
   background-color: #353D41;
 }
   #despesa-create-container{
-      margin-bottom: 25px;
-      height: 100vh;
+    background-color: #ffffff;
+    margin-top: 25px;
+    padding-bottom: 15px;
   }
-/*Middle Style*/
-.background img{
-	max-height: 84vh;
-	width: 100%;
-}

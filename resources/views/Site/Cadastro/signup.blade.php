@@ -1,4 +1,4 @@
-@extends('Site/Layouts/main')
+@extends('Site.Layouts.main')
 @section('css_link')
     <link rel="stylesheet" href="/css/Login/login.css">
 @endsection
