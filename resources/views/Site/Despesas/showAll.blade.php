@@ -26,9 +26,16 @@
             </div>           
             <div class="row" id="cards-container">
                 @foreach($despesas as $despesa)
+                <?php
+                    if($despesa->imagem == 'null.png'){
+                        $diretorio = '/img/';
+                    }else{
+                        $diretorio = '/storage/img/Despesas/';
+                    }
+                ?>
                 <div class="card col-md-3">
                     <div class="row">
-                        <img src="/storage/img/Despesas/{{ $despesa->imagem }}" alt="{{ $despesa->imagem }}">
+                        <img src="{{ $diretorio . $despesa->imagem }}" alt="{{ $despesa->imagem }}">
                     </div>
                     <div class="card-body">
                         <p class="card-date">{{ date('d/m/Y',strtotime($despesa->date))}}</p>

@@ -1,3 +1,11 @@
+<?php
+    if($despesa->imagem == 'null.png'){
+        $diretorio = '/img/';
+    }else{
+        $diretorio = '/storage/img/Despesas/';
+    }
+?>
+
 @extends('Site.Layouts.main')
 @section('css_link')
     <link rel="stylesheet" href="/css/Despesa/show.css">
@@ -8,7 +16,7 @@
         <div class="col-md-10 offset-md-1">
             <div class="row">
                 <div id="imagem-container" class="col-md-6">
-                    <img src="/storage/img/Despesas/{{ $despesa->imagem }}" class="img-fluid">
+                    <img src="{{ $diretorio . $despesa->imagem }}" class="img-fluid">
                 </div>
                 <div id="info-container" class="col-md-4">
                     <h3 class="despesa-data">{{ $despesa->date }}</h3>
