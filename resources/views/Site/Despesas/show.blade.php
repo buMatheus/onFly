@@ -11,7 +11,7 @@
                     <img src="/storage/img/Despesas/{{ $despesa->imagem }}" class="img-fluid">
                 </div>
                 <div id="info-container" class="col-md-4">
-                    <h3 class="despesa-data">{{ date('d/m/Y',strtotime($despesa->date))}}</h3>
+                    <h3 class="despesa-data">{{ $despesa->date }}</h3>
                     <p class="despesa-valor">R${{ $despesa->valor}}</p>
                     <div class="row" id="btns">
                         <a href="/Despesa/{{ $despesa->id }}/edit" class="btn btn-primary" id="alterar-submit">Editar</a>

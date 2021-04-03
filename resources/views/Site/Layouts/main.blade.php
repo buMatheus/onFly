@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- CSS Aplicação -->
         @yield('css_link')
+        <!-- Kit Awesome -->
+        <script src="https://kit.fontawesome.com/f8f9f7c934.js" crossorigin="anonymous"></script>
         <!-- Scripts -->
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -54,8 +56,7 @@
                             </form>
                         @endauth
                         @guest
-                            <a class="nav-item nav-link" id="about-menu" href="/login">Login</a>
-                            <a class="nav-item nav-link" id="services-menu" href="/register">Registrar</a>
+                            <a class="nav-item nav-link" id="services-menu" href="/register">Entrar/Registrar</a>
                         @endguest
                     </div>
                 </div>

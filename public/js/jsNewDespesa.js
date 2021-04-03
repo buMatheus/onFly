@@ -42,7 +42,7 @@ function validar(){
         alert('Preencha a descrição da despesa!');
         document.formulario.descricao.focus();
         return false;
-    } 
+    }
     var valor = document.getElementById('valor');
     if(valor.value == ""){
         alert('Preencha o valor da despesa!');
@@ -57,11 +57,8 @@ function validar(){
     }
     console.log(dataForm);
     var dataAtual = new Date();
-    console.log(dataAtual);
     var partesData = dataForm.value.split("/",3);
-    console.log(partesData);
     var data = new Date(partesData[2], partesData[1]-1, partesData[0]);
-    console.log(data);
     if(data > dataAtual){
         alert('Preencha a data correta!');
         document.formulario.date.focus();

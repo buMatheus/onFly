@@ -10,6 +10,11 @@
                 <p class="msg">{{ session('msg')}}</p>
             @endif
         </div>
+        <div class="row">
+            @if($despesas->isEmpty())
+                <p class="msg">Lista de despesas vazia</p>
+            @endif
+        </div>
         <div class="container" id="despesa-container">
             <div class="row">
                 <div class="col-12" id="row-add">  

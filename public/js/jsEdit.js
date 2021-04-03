@@ -37,14 +37,4 @@ window.onload = function() {
     $('#valor').mask("###0.00", {reverse: true});
 
     $('#date').mask("00/00/0000", {reverse: false});
-};
-$(document).ready(function() {
-     // Pegar data
-     var dataForm = document.getElementById('date');
-     // Separando meus atributos de data de acordo com o que recebo
-     var partesData = dataForm.value.split(" ",1);
-     // Transformar em dd/mm/aaaa
-     var data = partesData[0].split('-').reverse().join('/');
-     // Envia esse valor para o formulário
-     dataForm.value = data;
-});
+}

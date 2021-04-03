@@ -82,7 +82,7 @@ class DespesaController extends Controller
      */
     public function show($id){
         $despesa = Despesa::findOrFail($id);
-
+        $despesa->date = date('d/m/Y',strtotime($despesa->date));
         return view('Site.Despesas.show', ['despesa' => $despesa]);
     }
 
@@ -94,6 +94,7 @@ class DespesaController extends Controller
      */
     public function edit($id){
         $despesa = Despesa::findOrFail($id);
+        $despesa->date = date('d/m/Y',strtotime($despesa->date));
         return view('Site.Despesas.update', ['despesa' => $despesa]);
     }
 

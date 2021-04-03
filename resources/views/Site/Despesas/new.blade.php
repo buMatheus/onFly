@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="title">Valor:</label>
-                <input type="text" class="form-control" name="valor" id="valor" placeholder="125,34">
+                <input type="text" class="form-control" name="valor" id="valor" placeholder="125.34">
             </div>
             <div class="form-group">
                 <label for="date">Data da despesa:</label>

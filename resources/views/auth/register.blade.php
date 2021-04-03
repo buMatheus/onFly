@@ -1,60 +1,117 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="name" value="{{ __('Nome') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Senha') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirme sua senha') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+@extends('Site.Layouts.main')
+@section('css_link')
+    <link rel="stylesheet" href="/css/Login/login.css">
+@endsection
+@section('title', 'Registrar')
+@section('usuario', 'Olá Visitante')
+@section('middle')
+	<div class="container-middle">
+		<div class="content first-content">
+			<div class="first-column">
+				<h2 class="title title-primary">Bem vindo de volta</h2>
+				<p class="description description-primary">Para continuar conectado com a gente</p>
+				<p class="description description-primary">por favor, entre com suas informações pessoais</p>
+				<buttom id="signin" class="btn btn-primary"> Log in</buttom>
+			</div><!-- First column -->
+			<!--Registrar-->
+			<div class="second-column">
+				<h2 class="title title-second">Criar conta</h2>
+				<div class="social-media">
+					<ul class="list-social-media">
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-google"></i>
+							</li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-facebook"></i>
+							</li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-linkedin"></i>
+							</li>
+						</a>
+					</ul>
+				</div><!-- Social Media -->
+				<p class="description description-second">ou use seu e-mail para se registrar</p>
+				<form class="form" method="POST" action="{{ route('register') }}">
+					@csrf
+						<label class="label-input">
+							<i class="far fa-user icon-modify"></i>
+							<input placeholder="Nome" type="text" id="name" class="block mt-1 w-full" name="name" :value="old('name')" required autofocus autocomplete="name">
+						</label>
+                        <label class="label-input">
+							<i class="far fa-envelope icon-modify"></i>
+							<input type="email" placeholder="Email"id="email" class="block mt-1 w-full" name="email" :value="old('email')" required>
+						</label>
+						<label class="label-input">
+							<i class="fas fa-key icon-modify"></i>
+							<input type="password" placeholder="Senha" id="password" class="block mt-1 w-full" name="password" required autocomplete="new-password">
+						</label>
+                        <label class="label-input">
+							<i class="fas fa-key icon-modify"></i>
+							<input type="password" placeholder="Confirme sua senha" id="password_confirmation" class="block mt-1 w-full" name="password_confirmation" required autocomplete="new-password">
+						</label>
+						<button class="btn btn-second">
+							{{ __('Registrar') }}
+						</button>
+				</form>
+			</div> <!-- Second Column -->
+		</div><!-- First content -->
+		<div class="content second-content">
+			<div class="first-column">
+				<h2 class="title title-primary">Olá, visitante</h2>
+				<p class="description description-primary">Entre com seus dados pessoais</p>
+				<p class="description description-primary">Comece sua viagem com a gente!</p>
+				<buttom  id="signup" class="btn btn-primary"> Registre-se</buttom>
+			</div><!-- First column -->
+			<div class="second-column">
+				<h2 class="title title-second">Entre no sistema</h2>
+				<div class="social-media">
+					<ul class="list-social-media">
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-google"></i>
+							</li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-facebook"></i>
+							</li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media">
+								<i class="fab fa-linkedin"></i>
+							</li>
+						</a>
+					</ul>
+				</div><!-- Social Media -->
+				<p class="description">Ou use seu email:</p>
+				<form class="form" method="POST" action="{{ route('login') }}">
+					@csrf
+						<label class="label-input">
+						<i class="far fa-envelope icon-modify"></i>
+							<input type="email" placeholder="Email" id="email" class="block mt-1 w-full" name="email" :value="old('email')" required autofocus>
+						</label>
+						<label class="label-input">
+							<i class="fas fa-key icon-modify"></i>
+							<input type="password" placeholder="Senha" id="password" class="block mt-1 w-full" name="password" required autocomplete="current-password">
+						</label>
+						@if (Route::has('password.request'))
+							<a href="{{ route('password.request') }}">
+								{{ __('Esqueceu sua senha?') }}
+							</a>
+						@endif
+                        <div id="entrar">
+						    <button class="btn btn-second">Entrar</button>
                         </div>
-                    </x-jet-label>
-                </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Já é registrado?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Registrar') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+				</form>
+			</div> <!-- Second Column -->
+		</div><!-- Second content -->
+	</div><!-- Container -->
+@endsection
+@section('js_link')
+    <script src="/js/jsCadastro.js"></script>
+@endsection
